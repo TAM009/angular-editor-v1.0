@@ -1,1 +1,1 @@
-# angular-editor-v1.0
+# Editor-

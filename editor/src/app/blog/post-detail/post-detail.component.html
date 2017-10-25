@@ -1,0 +1,27 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">View</a></li>
+  <li><a routerLink="/blog/{{post.id}}/edit">Edit</a></li>
+  <li><a href="#">Delete</a></li>
+</ul>
+
+
+<article class="post">
+  <h2>{{post.title}}</h2>
+  <div class="post-content" [innerHTML]="post.body"></div>
+</article>
+
+
+<div id="comments">
+  <h2>Comments:</h2>
+  <ul>
+    <li *ngFor="let comment of comments">
+      <h3>{{comment.name}} says: {{comment.title}}</h3>
+      <div class="comment-body">{{comment.body}}</div>
+    </li>
+  </ul>
+</div>
+
+<div class="comment-form">
+  <h2>Write your comment:</h2>
+  <app-comment-form (newComment)="onNewComment($event)" [postId]="postId"></app-comment-form>
+</div>
